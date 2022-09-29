@@ -8,7 +8,7 @@
 
 template<typename T> constexpr std::size_t get_max_bits() { return sizeof(T) * 8; }
 template<typename T, std::size_t MAX_BITS = get_max_bits<T>()>
-[[nodiscard]] std::pair<unsigned, std::bitset<MAX_BITS>> reverse_bit(const T& n) {
+[[nodiscard]] std::pair<T, std::bitset<MAX_BITS>> reverse_bit(const T& n) {
         T reverse_num = 0;
 
         for (unsigned i = 0; i < MAX_BITS; ++i)
