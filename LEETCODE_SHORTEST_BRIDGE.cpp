@@ -4,7 +4,7 @@
 #include <vector>
 #include <math.h>
 
-constexpr double PI_2 = (3.14159 / 2);
+constexpr float PI_2 = (3.14159 / 2);
 
 class Solution {
         private:
@@ -67,7 +67,7 @@ class Solution {
                                 int x = r + std::round(-1 * std::cos(PI_2 * i));
                                 int y = c + std::round(-1 * std::sin(PI_2 * i));
 
-                                if (x >= 0 && x < grid.size() && y >= 0 && y < grid[0].size() && grid[r][c] == 1)
+                                if (x >= 0 && x < grid.size() && y >= 0 && y < grid[0].size() && grid[x][y] == 1)
                                         mark_island_as_2(x, y);
                         }
                 }
@@ -79,6 +79,6 @@ int main() {
         std::cout.tie(NULL);
 
         Solution solution;
-        std::cout << solution.shortestBridge({{0, 1, 0}, {0, 0, 0}, {0, 0, 1}}) << '\n';
+        std::cout << solution.shortestBridge({{1,1,1,1,1},{1,0,0,0,1},{1,0,1,0,1},{1,0,0,0,1},{1,1,1,1,1}}) << '\n';
         return 0;
 }
