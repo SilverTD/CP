@@ -15,12 +15,12 @@
 => we get the general formula:
 
 **General formula x<sup>n</sup> + y<sup>n</sup>:**
-+ With n % 2 = 0:
++ With n % 2 ≠ 0:
   + K := $\frac{n + 1}{2}$
   + E := n - K
   + x<sup>n</sup> + y<sup>n</sup> = (x<sup>K</sup> + y<sup>K</sup>)(x<sup>E</sup> + y<sup>E</sup>) - (xy)<sup>E</sup>(x + y)
 
-+ With n % 2 ≠ 0
++ With n % 2 = 0
   + K := $\frac{n}{2}$
   + x<sup>n</sup> + y<sup>n</sup> = (x<sup>K</sup> + y<sup>K</sup>)<sup>2</sup> - 2(xy)<sup>K</sup>
 
