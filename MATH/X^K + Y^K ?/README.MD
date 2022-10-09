@@ -1,4 +1,4 @@
-# SOLVE THE SOLUTION
+# SOLVE THE PROBLEM
 
 **Example:**
 - x + y = 1
