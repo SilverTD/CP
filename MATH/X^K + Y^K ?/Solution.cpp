@@ -3,10 +3,13 @@
 #include <math.h>
 #include <array>
 /*
+
         * x^n + y^n (n & 1)
         K = (n + 1) / 2
         E = (n - K)
+
         x^n + y^n = (x^K + y^K)(x^E + y^E) - (xy)^E(x + y)
+
         * x^n + y^n !(n & 1)
         K = n / 2
         x^n + y^n = (x^K + y^K)^2 - 2(xy)^K
@@ -55,7 +58,8 @@ struct Fraction {
         }
 
         friend std::ostream& operator<<(std::ostream& os, const Fraction& fraction) {
-                os << fraction.numerator << '/' << fraction.denominator;
+                if (fraction.denominator != 1) os << fraction.numerator << '/' << fraction.denominator;
+                else os << fraction.numerator;
                 return os;
         }
 };
@@ -66,16 +70,15 @@ int main() {
         std::cout.tie(0);
 
         Fraction a, b;
-        int m;
+        unsigned m;
         std::array<Fraction, 100> dp;
         std::cin >> a.numerator >> b.numerator >> m;
-        std::cout << "x + y = " << a.numerator << '\n';
-        std::cout << "x^2 + y^2 = " << b.numerator << '\n';
 
+        dp[0] = 2; // x^0 + y^0 = 1 + 1 = 2
         dp[1] = a; // x + y
         dp[2] = b; // x^2 + y^2
 
-        auto xy = (Fraction(2) - a) / (-2);
+        auto xy = (b - pow(a, 2)) / (-2);
 
         for (unsigned n = 3; n <= m; ++n) {
                 if (n & 1) {
@@ -89,7 +92,17 @@ int main() {
                 }
         }
 
-        std::cout << "x^" << m << " + y^" << m << " = " << dp[m] << '\n';
+        #define DEBUG 1
+        #ifdef DEBUG
+                std::cout << "xy = " << xy << '\n';
+                for (unsigned n = 1; n <= m; ++n) {
+                        std::cout << "x^" << n << " + y^" << n << " = " << dp[n] << '\n';
+                }
+        #else
+                std::cout << "x + y = " << a << '\n';
+                std::cout << "x^2 + y^2 = " << b << '\n';
+                std::cout << "x^" << m << " + y^" << m << " = " << dp[m] << '\n';
+        #endif
 
         return 0;
-} 
+}
