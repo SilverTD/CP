@@ -12,9 +12,9 @@
 - x<sup>4</sup> + y<sup>4</sup> = (x<sup>2</sup>)<sup>2</sup> + (y<sup>2</sup>)<sup>2</sup> = (x<sup>2</sup> + y<sup>2</sup>)<sup>2</sup> - 2(xy)<sup>2</sup> = $\frac{7}{2}$
 - x<sup>5</sup> + y<sup>5</sup> = (x<sup>3</sup> + y<sup>3</sup>)(x<sup>2</sup> + y<sup>2</sup>) - (xy)<sup>2</sup>(x + y) = $\frac{19}{4}$
 - x<sup>6</sup> + y<sup>6</sup> = (x<sup>3</sup>)<sup>2</sup> + (y<sup>3</sup>)<sup>2</sup> = (x<sup>3</sup> + y<sup>3</sup>)<sup>2</sup> - 2(xy)<sup>3</sup> = $\frac{13}{2}$
-⇒ we get the general formula:
+⇒ we get the recursion formula:
 
-**General formula x<sup>n</sup> + y<sup>n</sup> (∀n ∈ N):**
+**Recursion formula x<sup>n</sup> + y<sup>n</sup> (∀n ∈ N):**
 + n mod 2 ≠ 0:
   + K = $\frac{n + 1}{2}$
   + E = n - K
