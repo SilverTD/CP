@@ -4,7 +4,7 @@
         CHỮ KÍ SỐ
         Chữ ký số cá nhân là một loại chữ ký điện tử, có giá trị tương đương với chữ ký tay của mỗi cá nhân. Chữ ký số cá nhân được dùng với mục đích xác thực danh tính của người ký trong các trường hợp giao dịch điện tử. Chữ kí số được số hóa (mã hóa) với thuật toán cơ bản là dự trên số nguyên có tổng các chữ số là số nguyên tố.
         Yêu cầu: Cho trước hai số nguyên L, R. Hãy đếm xem trong đoạn L, R có bao nhiêu số nguyên có tổng các chữ số là số nguyên tố (kể cả số nguyên L, R).
-        Dữ liệu: Cho từ tệp văn bản SIGNA.INP chỉ một dòng ghi hai số nguyên L và R (1 ≤L<R≤ 105).
+        Dữ liệu: Cho từ tệp văn bản SIGNA.INP chỉ một dòng ghi hai số nguyên L và R (1 ≤ L < R ≤ 10^5).
         Kết quả: Ghi vào tệp văn bản SIGNA.OUT chỉ có một dòng ghi số nguyên theo yêu cầu.
         
         Input: 7 20
