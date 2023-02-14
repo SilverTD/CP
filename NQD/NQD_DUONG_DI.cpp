@@ -71,78 +71,35 @@ int32_t main() {
         return 0;
 }
 
-class BigInt {
-        private:
-                string value;
-        public:
-                BigInt() {
-                        value = "0";
-                }
+string sum(string a, string b) {
+        int carry = 0;
+        string res;
 
-                BigInt(const int& num) {
-                        value = std::to_string(std::abs(num));
-                }
+        while (a.length() < b.length())
+                a = '0' + a;
+        while (b.length() < a.length())
+                b = '0' + b;
 
-                BigInt& operator=(const BigInt& a) {
-                        value = a.value;
-                        return *this;
-                }
+        for (int i = a.length() - 1; i >= 0; --i) {
+                int d = (a[i] - '0') + (b[i] - '0') + carry;
+                carry = d / 10;
+                res = (char)(d % 10 + '0') + res;
+        }
 
-                BigInt& operator=(const int& a) {
-                        BigInt temp(a);
-                        value = temp.value;
-                        return *this;
-                }
+        if (carry) res = '1' + res;
+        return res;
+}
 
-                BigInt operator+(const BigInt& num) const {
-                        string str1 = value, str2 = num.value;
-                        if (str1.length() > str2.length())
-                                swap(str1, str2);
-                        string str = "";
- 
-                        int n1 = str1.length(), n2 = str2.length();
- 
-                        reverse(str1.begin(), str1.end());
-                        reverse(str2.begin(), str2.end());
- 
-                        int carry = 0;
-                        for (int i = 0; i < n1; i++) {
-                                int sum = ((str1[i] - '0') + (str2[i] - '0') + carry);
-                                str.push_back(sum % 10 + '0');
-                                carry = sum / 10;
-                        }
-
-                        for (int i = n1; i < n2; i++) {
-                                int sum = ((str2[i] - '0') + carry);
-                                str.push_back(sum % 10 + '0');
-                                carry = sum / 10;
-                        }
- 
-                        if (carry) str.push_back(carry + '0');
- 
-                        reverse(str.begin(), str.end());
-
-                        BigInt temp;
-                        temp.value = str;
-                        return temp;
-                }
-
-                friend ostream& operator<<(std::ostream& out, const BigInt& num) {
-                        out << num.value;
-                        return out;
-                }
-};
-
-BigInt dp[1002][1002];
+string dp[1002][1002];
 void solve() {
         int n;
         cin >> n;
 
-        for (int i = 0; i < n; ++i) dp[0][i] = 1;
-        for (int i = 0; i < n; ++i) dp[i][0] = 1;
+        for (int i = 0; i < n; ++i) dp[0][i] = "1";
+        for (int i = 0; i < n; ++i) dp[i][0] = "1";
         for (int i = 1; i < n; ++i) {
                 for (int j = 1; j < n; ++j) {
-                        dp[i][j] = dp[i - 1][j] + dp[i][j - 1];
+                        dp[i][j] = sum(dp[i - 1][j], dp[i][j - 1]);
                 }
         }
         cout << dp[n - 1][n - 1];
