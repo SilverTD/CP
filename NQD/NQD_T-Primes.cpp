@@ -1,3 +1,15 @@
+/*
+        Số T - Prime
+
+        Bạn Nam rất yêu thích toán học, đặc biệt là thích tìm hiểu về số học. Một ngày nọ, trong lúc giải một bài toán số học, bạn Nam phát hiện ra trong các số mà mình tìm được có rất nhiều số có đặc điểm là chúng có đúng ba ước số nguyên dương khác nhau, và bạn Nam gọi những số này là số T-Prime.
+        Yêu cầu: Hãy lập trình giúp bạn Nam đếm xem có bao nhiêu số T-Prime (tức là số có đúng ba ước số nguyên dương khác nhau) có giá trị không vượt quá số nguyên n cho trước.
+        Dữ liệu vào: Cho từ tệp văn bản TPRIME.INP gồm một dòng ghi số nguyên dương n.
+        Kết quả: Ghi ra tệp văn bản TPRIME.OUT gồm một dòng ghi một số nguyên là số lượng số T-Prime đếm được.
+        Ví dụ:
+        INPUT: 6
+        OUTPUT: 1
+
+*/
 #include <bits/stdc++.h>
 
 using namespace std;
