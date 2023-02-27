@@ -99,7 +99,7 @@ void solve() {
         sieve();
 
         for (int i = 2; i * i <= n; ++i) {
-                if (is_prime[i] && i * i < n)
+                if (is_prime[i] && i * i > 1)
                         ++c;
         }
         cout << c;
