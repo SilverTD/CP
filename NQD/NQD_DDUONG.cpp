@@ -76,29 +76,37 @@ int32_t main() {
 void solve() {
         int n, k;
         cin >> n >> k;
-        vector<int> a(n);
-        unordered_map<int, int> b;
+        vector<int> prefix_sum(n + 1, 0);
+        unordered_map<int, int> furthes_index;
 
-        int prefixSum = 0, start = n + 1, max_length = 0;
-        for (int i = 0; i < n; ++i) {
-                cin >> a[i];
-                a[i] -= k;
-                prefixSum += a[i];
-
-                if (prefixSum == 0) {
-                        max_length = max(max_length, i + 1);
-                        start = min(start, max_length - i);
-                }
-                else if (b.count(prefixSum) && i - b[prefixSum] >= max_length) {
-                        start = min(start, b[prefixSum] + 2);
-                        max_length = i - b[prefixSum];
-                } else {
-                        b[prefixSum] = i;
-                }
+        int start = n + 2, max_length = 0;
+        for (int i = 1; i <= n; ++i) {
+                int x;
+                cin >> x;
+                prefix_sum[i] = prefix_sum[i - 1] + (x - k);
+                furthes_index[prefix_sum[i]] = i;
         }
 
+        for (int i = 1; i <= n; ++i) {
+                if (prefix_sum[i] == 0) {
+                        start = 1;
+                        max_length = i;
+                }
+                else if (furthes_index.count(prefix_sum[i])) {
+                        int j = furthes_index[prefix_sum[i]];
+                        if (j > i) {
+                                if (j - i > max_length || (start == 1 && j - i > max_length)) {
+                                        start = i + 1;
+                                        max_length = j - i;
+                                }
+                                else if (j - i == max_length) {
+                                        start = min(start, i + 1);
+                                }
+                        }
+                }
+        }
         if (max_length > 0)
-                cout << start << '\n' << max_length << '\n';
+                cout << start << '\n' <<  max_length << '\n';
         else
-                cout << 0 << '\n';
+                cout << 0;
 }
