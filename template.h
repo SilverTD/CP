@@ -16,6 +16,11 @@ using namespace std;
 #define sqr(x) ((x) * (x))
 #define SZ(a) ((int)(a.size()))
 
+// Bitmask
+#define SET_BIT(mask, bit) (mask |= 1 << bit)
+#define CLEAR_BIT(mask, bit) (mask &= ~(1 << bit))
+#define TEST_BIT(mask, bit) ((mask & (1 << bit)) != 0)
+
 // For printing pair, container, etc.
 // Copied from https://quangloc99.github.io/2021/07/30/my-CP-debugging-template.html
 template<class U, class V> ostream& operator << (ostream& out, const pair<U, V>& p) {
