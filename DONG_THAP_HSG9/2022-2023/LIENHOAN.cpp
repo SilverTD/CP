@@ -67,6 +67,6 @@ int32_t main() {
 void solve() {
         int n, k;
         cin >> n >> k;
-        if (k >= n) cout << 10;
+        if (k >= n) cout << 6;
         else cout << ceil((2.0f * n) / k) * 3;
 }
