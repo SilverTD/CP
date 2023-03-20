@@ -77,14 +77,14 @@ void solve() {
         int n, k;
         cin >> n >> k;
         vector<int> prefix_sum(n + 1, 0);
-        unordered_map<int, int> furthest;
+        unordered_map<int, int> furthest_index;
 
         int start = n + 2, max_length = 0;
         for (int i = 1; i <= n; ++i) {
                 int x;
                 cin >> x;
                 prefix_sum[i] = prefix_sum[i - 1] + (x - k);
-                furthest[prefix_sum[i]] = i;
+                furthest_index[prefix_sum[i]] = i;
         }
 
         for (int i = 1; i <= n; ++i) {
